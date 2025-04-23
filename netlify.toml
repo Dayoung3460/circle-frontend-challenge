@@ -1,0 +1,12 @@
+[build]
+command   = "npm run build"
+publish   = "dist"
+functions = "netlify/functions"
+
+[functions]
+included_files = ["node_modules/.prisma/client/**/*"]
+
+[[redirects]]
+from   = "/books/*"
+to     = "/.netlify/functions/server/books/:splat"
+status = 200
